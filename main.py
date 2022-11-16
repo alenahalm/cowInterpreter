@@ -1,7 +1,10 @@
 from cow.interpreter import Interpreter
 
 file = open('hello.cow')
-cmds = '\n'.join(file.readlines())
+cmds = []
+for i in file.readlines():
+    cmds.extend(i.strip().split(' '))
+
 
 interp = Interpreter(cmds)
 interp.eval()
